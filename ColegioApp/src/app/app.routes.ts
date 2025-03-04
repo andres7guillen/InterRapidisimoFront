@@ -20,6 +20,7 @@ const loadStudentListComponent = () => import('./features/student/student-list/s
 const loadStudentRegisterComponent = () => import('./features/student/student-register/student-register.component').then(m => m.StudentRegisterComponent);
 const loadStudentEditComponent = () => import('./features/student/student-edit/student-edit.component').then(m => m.StudentEditComponent);
 const loadStudentDetailComponent = () => import('./features/student/student-detail/student-detail.component').then(m => m.StudentDetailComponent);
+const loadStudentClassMatesComponent = () => import('./features/student/student-classmates/student-classmates.component').then(m => m.StudentClassmatesComponent);
 
 const loadSubjectListComponent = () => import('./features/subject/subject-list/subject-list.component').then(m => m.SubjectListComponent);
 const loadSubjectCreateComponent = () => import('./features/subject/subject-create/subject-create.component').then(m => m.SubjectCreateComponent);
@@ -36,9 +37,10 @@ const loadProfessorSubjectCreateComponent = () => import('./features/professor-s
 export const appRoutes: Routes = [
   // Estudiantes
   { path: 'students', loadComponent: loadStudentListComponent },
-  { path: 'students/register', loadComponent: loadStudentRegisterComponent },
-  { path: 'students/edit/:id', loadComponent: loadStudentEditComponent },
-  { path: 'students/detail/:id', loadComponent: loadStudentDetailComponent },
+  { path: 'student/register', loadComponent: loadStudentRegisterComponent },
+  { path: 'student/edit/:id', loadComponent: loadStudentEditComponent },
+  { path: 'student/detail/:id', loadComponent: loadStudentDetailComponent },
+  { path: 'student-classmates', loadComponent: loadStudentClassMatesComponent },
 
   // Materias
   { path: 'subjects', loadComponent: loadSubjectListComponent },

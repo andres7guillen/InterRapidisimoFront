@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>Consultar compañeros de clase</h2>
+    <form [formGroup]="studentClassmateForm" (ngSubmit)="getClassmates()">
+      
+      <label for="student">Estudiante</label>
+      <select id="student" formControlName="studentId">
+        <option value="">Seleccione un estudiante</option>
+        <option *ngFor="let student of studentsForm" [value]="student.id">
+          {{ student.name }} {{student.surname}}
+        </option>
+      </select>  
+     
+      <button type="submit" [disabled]="studentClassmateForm.invalid">Buscar compañeros</button>
+    </form>
+
+    <ul>
+        <li *ngFor="let student of studentsClassmates">
+          {{ student.name }} {{student.surname}} materia en común: {{student.subjectName}}
+        </li>
+      </ul>
+
+  </div>
+  

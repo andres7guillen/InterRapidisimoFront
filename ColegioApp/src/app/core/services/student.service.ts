@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StudentRegisterModel } from '../models/student-register-model';
 import { StudentDto } from '../models/student-dto';
+import { ClassmateDto } from '../models/classmate-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,10 @@ export class StudentService {
 
   getStudentById(id: string): Observable<StudentDto> {
     return this.http.get<StudentDto>(`${this.apiUrl}/${id}`);
+  }
+
+  getClassMates(id:string): Observable<ClassmateDto[]>{
+    return this.http.get<ClassmateDto[]>(`${this.apiUrl}/${id}/classmates`);
   }
 
 }
