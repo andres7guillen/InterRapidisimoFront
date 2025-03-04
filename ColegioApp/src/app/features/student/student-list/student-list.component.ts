@@ -36,11 +36,11 @@ export class StudentListComponent implements OnInit {
 
   // Ir al detalle del estudiante
   viewDetails(id: string): void {
-    this.router.navigate(['/students/detail', id]);
+    this.router.navigate(['/student/detail', id]);
   }
 
   navigateToRegister(): void {
-    this.router.navigate(['/students/register']);
+    this.router.navigate(['/student/register']);
   }
 
 
