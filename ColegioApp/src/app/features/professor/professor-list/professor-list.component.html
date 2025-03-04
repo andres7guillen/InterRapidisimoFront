@@ -1,0 +1,27 @@
+<div class="container mt-4">
+    <h2>Lista de Profesores</h2>
+  
+    <button class="btn btn-success mb-3" (click)="createProfessor()">Crear Nuevo Profesor</button>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Correo Electrónico</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let professor of professors">
+          <td>{{ professor.name }}</td>
+          <td>{{ professor.surName }}</td>
+          <td>{{ professor.email }}</td>
+          <td>
+            <button class="btn btn-info mr-2" (click)="viewDetails(professor.id)">Detalle</button>
+            <button class="btn btn-danger" (click)="deleteProfessor(professor.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

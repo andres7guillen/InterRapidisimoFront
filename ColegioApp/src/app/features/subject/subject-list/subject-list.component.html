@@ -1,0 +1,48 @@
+<hr>
+
+<div class="row">
+  <div class="col text-right">
+    <button 
+      routerLink="/subjects/create"
+      class="btn btn-primary">
+      <i class="fa fa-plus"></i> Crear Nuevo
+    </button>
+  </div>
+</div>
+
+<table class="table mt-3 animated fadeIn faster">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Créditos</th>
+      <th scope="col">Profesores</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let subject of subjects let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ subject.name }}</td>
+      <td>{{ subject.credits }}</td>
+      <td>
+        <ul>
+          <li *ngFor="let professor of subject.professors">{{ professor.name }}</li>
+        </ul>
+      </td>
+      <td>
+        <button class="btn btn-info btn-sm me-2" [routerLink]="['/subjects/detail', subject.id]">
+            <i class="fa fa-eye"></i> Detalle
+        </button>
+        <button class="btn btn-warning mr-1"
+          [routerLink]="['/subjectEditar', subject.id]">
+          <i class="fa fa-pencil"></i> Editar
+        </button>
+        <button (click)="deleteSubject(subject)" class="btn btn-danger btn-sm">
+          <i class="fa fa-trash"></i> Eliminar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

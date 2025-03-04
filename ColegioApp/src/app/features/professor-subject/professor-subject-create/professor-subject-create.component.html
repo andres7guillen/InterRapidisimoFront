@@ -1,0 +1,46 @@
+
+<div class="container mt-4">
+    <h2>Asignar Materia a Profesor</h2>
+  
+    <form [formGroup]="professorSubjectForm" (ngSubmit)="assignSubject()">
+      <!-- Select de Profesores -->
+      <div class="form-group">
+        <label for="professor">Selecciona un Profesor</label>
+        <select id="professor" class="form-control" formControlName="professorId" (change)="onProfessorChange()">
+          <option *ngFor="let professor of professors" [value]="professor.id">
+            {{ professor.name }} {{ professor.surName }}
+          </option>
+        </select>
+      </div>
+    
+      <div class="form-group mt-3">
+        <label for="subject">Selecciona una Materia</label>
+        <select id="subject" class="form-control" formControlName="subjectId">
+          <option *ngFor="let subject of subjects" [value]="subject.id">
+            {{ subject.name }}
+          </option>
+        </select>
+      </div>
+  
+      <!-- Botón para asignar -->
+      <div class="mt-4">
+        <button type="submit" class="btn btn-primary" [disabled]="professorSubjectForm.invalid">
+          Asignar Materia
+        </button>
+        <button type="button" class="btn btn-secondary ml-2" (click)="cancel()">
+          Cancelar
+        </button>
+      </div>
+    </form>
+
+    <div class="mt-4" *ngIf="professorSubjects.length > 0">
+        <h3>Materias que ya dicta el profesor:</h3>
+        <ol>
+          <li *ngFor="let subject of professorSubjects">
+            {{ subject.name }}
+          </li>
+        </ol>
+      </div>
+
+  </div>
+  
