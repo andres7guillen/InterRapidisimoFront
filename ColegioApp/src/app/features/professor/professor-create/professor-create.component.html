@@ -1,0 +1,24 @@
+<div class="container mt-4">
+    <h2>Registrar Profesor</h2>
+  
+    <form [formGroup]="professorForm" (ngSubmit)="registerProfessor()">
+      <div class="form-group">
+        <label>Nombre:</label>
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+  
+      <div class="form-group">
+        <label>Apellido:</label>
+        <input type="text" class="form-control" formControlName="surname">
+      </div>
+  
+      <div class="form-group">
+        <label>Correo Electrónico:</label>
+        <input type="email" class="form-control" formControlName="email">
+      </div>
+  
+      <button type="submit" class="btn btn-primary mt-3" [disabled]="professorForm.invalid">Registrar</button>
+      <button type="button" class="btn btn-secondary mt-3 ml-2" (click)="navigateToList()">Volver</button>
+    </form>
+</div>
+  

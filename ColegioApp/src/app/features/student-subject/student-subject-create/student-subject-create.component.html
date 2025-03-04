@@ -1,0 +1,42 @@
+<div class="container">
+    <h2>Inscribir Materia a Estudiante</h2>
+    <form [formGroup]="studentSubjectForm" (ngSubmit)="assignSubject()">
+      
+      <label for="student">Estudiante</label>
+      <select id="student" formControlName="studentId" (change)="onStudentChange()">
+        <option value="">Seleccione un estudiante</option>
+        <option *ngFor="let student of students" [value]="student.id">
+          {{ student.name }}
+        </option>
+      </select>
+  
+      <label>Materias Inscritas</label>
+      <ul>
+        <li *ngFor="let subject of enrolledSubjects">
+          {{ subject.name }}
+        </li>
+      </ul>
+  
+      <label for="subject">Materia</label>
+      <select id="subject" formControlName="subjectId" (change)="onSubjectChange()">
+        <option value="">Seleccione una materia</option>
+        <option *ngFor="let subject of subjects" [value]="subject.id">
+          {{ subject.name }}
+        </option>
+      </select>
+  
+      <div *ngIf="professors.length > 0">
+        <label for="professor">Profesor</label>
+        <select id="professor" formControlName="professorId">
+          <option value="">Seleccione un profesor</option>
+          <option *ngFor="let professor of professors" [value]="professor.id">
+            {{ professor.name }}
+          </option>
+        </select>
+      </div>
+      
+  
+      <button type="submit" [disabled]="studentSubjectForm.invalid">Inscribir Materia</button>
+    </form>
+  </div>
+  

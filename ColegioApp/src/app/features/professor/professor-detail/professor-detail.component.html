@@ -1,0 +1,16 @@
+<div class="container mt-3">
+    <h2>Detalles del Profesor</h2>
+  
+    <div *ngIf="professor; else loading">
+      <p><strong>Nombre:</strong> {{ professor.name }}</p>
+      <p><strong>Apellido:</strong>{{ professor.surName }}</p>
+      <p><strong>Correo:</strong> {{ professor.email }}</p>
+  
+      <button class="btn btn-primary btn-sm" (click)="goBack()">Volver</button>
+    </div>
+  
+    <ng-template #loading>
+      <p>Cargando detalles...</p>
+    </ng-template>
+  </div>
+  

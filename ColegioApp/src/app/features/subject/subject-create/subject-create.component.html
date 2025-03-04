@@ -1,0 +1,18 @@
+<div class="container mt-4">
+    <h2>Crear Nueva Materia</h2>
+    <form (ngSubmit)="createSubject()">
+      <div class="form-group">
+        <label for="name">Nombre de la Materia</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          [(ngModel)]="name"
+          name="name"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Crear Materia</button>
+    </form>
+  </div>
+  

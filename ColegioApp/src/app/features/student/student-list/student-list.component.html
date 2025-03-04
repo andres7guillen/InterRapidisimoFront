@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Lista de Estudiantes</h2>
+    <button class="btn btn-primary" (click)="navigateToRegister()">Registrar Nuevo Estudiante</button>
+  </div>
+
+  <table class="table mt-3 animated fadeIn faster">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col"><th>Apellido</th>
+        <th scope="col">Email</th>
+        <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{ student.name }}</td>
+      <td>{{ student.surname }}</td>
+      <td>{{ student.email }}</td>
+      <td>
+        <button class="btn btn-info btn-sm me-2" (click)="viewDetails(student.id)">Detalle</button>
+        <button class="btn btn-danger btn-sm" (click)="deleteStudent(student.id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

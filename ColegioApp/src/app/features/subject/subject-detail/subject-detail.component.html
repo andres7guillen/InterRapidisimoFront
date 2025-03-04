@@ -1,0 +1,27 @@
+<div *ngIf="subject; else loading">
+    <h2>Detalle de la Materia</h2>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ subject.name }}</h5>
+        <p class="card-text"><strong>Créditos:</strong> {{ subject.credits }}</p>
+        <p class="card-text"><strong>Profesores:</strong></p>
+        <ul>
+          <li *ngFor="let professor of subject.professors">{{ professor.name }}</li>
+        </ul>
+        <p class="card-text"><strong>Estudiantes:</strong></p>
+        <ul>
+          <li *ngFor="let student of subject.students">{{ student.name }}</li>
+        </ul>
+        <a [routerLink]="['/subjects']" class="btn btn-secondary mt-3">Volver</a>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #loading>
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Cargando...</span>
+      </div>
+    </div>
+  </ng-template>
+  
